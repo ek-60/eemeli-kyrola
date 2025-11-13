@@ -113,7 +113,7 @@ class DirectoryListing extends HTMLElement {
                   .map(
                     (file) => `
                   <li>
-                    <a href="${file.href}" target="_blank">${file.label}</a>
+                    <a href="${file.href}" target="${file.target}">${file.label}</a>
                   </li>
                 `
                   )
