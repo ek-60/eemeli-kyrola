@@ -31,7 +31,7 @@ class DirectoryListing extends HTMLElement {
           --font-size-large: 20px;
           --font-weight-bold: bold;
           --font-weight-normal: normal;
-          --font-color: #000000;
+          --font-color: #0000ee;
         }
 
         h2, h3 {
