@@ -83,13 +83,13 @@ class MainCard extends HTMLElement {
         }
 
         .cross-top-left {
-          top: -10px;
-          left: -10px;
+          top: -11px;
+          left: -11px;
         }
 
         .cross-bottom-right {
-          bottom: -11px;
-          right: -11px;
+          bottom: -10px;
+          right: -10px;
         }
 
         .cross-line {
