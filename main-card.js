@@ -26,8 +26,7 @@ class MainCard extends HTMLElement {
 
           display: block;
           box-sizing: border-box;
-          margin: 20px;
-          padding: 20px;
+          
         }
 
         .app-card {
@@ -41,6 +40,8 @@ class MainCard extends HTMLElement {
           align-items: center;
           justify-content: center;
           position: relative;
+          margin: 20px;
+          padding: 20px;
         }
 
         .grid-container {
