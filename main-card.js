@@ -26,6 +26,7 @@ class MainCard extends HTMLElement {
 
           display: block;
           box-sizing: border-box;
+          padding: var(--space-medium);
         }
 
         .app-card {
