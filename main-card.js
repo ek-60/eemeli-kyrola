@@ -32,7 +32,7 @@ class MainCard extends HTMLElement {
           max-width: var(--card-width);
           min-height: var(--card-height);
           width: 100%;
-          padding: var(--space-medium);
+          margin: var(--space-medium);
           border: none;
           display: flex;
           flex-direction: column;
