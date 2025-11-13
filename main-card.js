@@ -25,6 +25,7 @@ class MainCard extends HTMLElement {
           --font-color: #000000;
 
           display: block;
+          box-sizing: border-box;
         }
 
         .app-card {
@@ -32,7 +33,6 @@ class MainCard extends HTMLElement {
           max-width: var(--card-width);
           min-height: var(--card-height);
           width: 100%;
-          margin: var(--space-medium);
           border: none;
           display: flex;
           flex-direction: column;
