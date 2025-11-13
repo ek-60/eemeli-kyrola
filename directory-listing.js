@@ -31,7 +31,7 @@ class DirectoryListing extends HTMLElement {
           --font-size-large: 20px;
           --font-weight-bold: bold;
           --font-weight-normal: normal;
-          --font-color: #0000ee;
+          --font-color: #000000;
         }
 
         h2, h3 {
@@ -94,7 +94,6 @@ class DirectoryListing extends HTMLElement {
           text-decoration: none;
           font-family: var(--font-family-monospace);
           font-size: var(--font-size-small);
-          color: var(--font-color);
         }
 
         .file-list a:hover,
