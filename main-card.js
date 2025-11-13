@@ -32,7 +32,6 @@ class MainCard extends HTMLElement {
           background-color: #ffffff;
           max-width: var(--card-width);
           min-height: var(--card-height);
-          width: 100%;
           border: none;
           display: flex;
           flex-direction: column;
