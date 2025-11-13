@@ -5,59 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style/styles.css" />
     <title>Eemeli Kyrola - Software Engineer</title>
-    <meta
-      name="description"
-      content="Eemeli Kyrola - Software Engineer"
-    />
-    <script src="./main-card.js"></script>
-    <script src="./directory-listing.js"></script>
+    <meta name="description" content="Eemeli Kyrola - Software Engineer" />
+
+    <script src="./main-card.js" defer></script>
+    <script src="./directory-listing.js" defer></script>
   </head>
+
   <body>
     <main class="app-main">
-      <div class="app-card">
-        <div class="grid-container">
-          <div class="grid">
-            <div class="cross cross-top-left">
-              <div class="cross-line cross-line-vertical"></div>
-              <div class="cross-line cross-line-horizontal"></div>
-            </div>
-            <div class="cross cross-bottom-right">
-              <div class="cross-line cross-line-vertical"></div>
-              <div class="cross-line cross-line-horizontal"></div>
-            </div>
-            <div class="grid-content">
-              <header class="grid-content-header">
-                <h1>// eemeli kyrölä</h1>
-              </header>
-              <div class="grid-content-body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam quas iste minus voluptatem doloremque praesentium reiciendis, dolorum cupiditate amet perspiciatis obcaecati magnam quia aliquid odio eveniet eum modi debitis nam.</p>
-              </div>
-              <div class="directory-listing">
-                <directory-listing
-                  data='{
-                    "skills": [
-                      { "label": "frontend.html", "href": "skills/frontend.html" },
-                      { "label": "backend.html", "href": "skills/backend.html" },
-                      { "label": "other.html", "href": "skills/other.html" }
-                    ],
-                    "about": [
-                      { "label": "education.html", "href": "about/education.html" },
-                      { "label": "experience.html", "href": "about/experience.html" },
-                      { "label": "resume.html", "href": "about/resume.html" }
-                    ],
-                    "contact": [
-                      { "label": "email.html", "href": "mailto:eemeli.kyrola@gmail.com" },
-                      { "label": "phone.html", "href": "tel:+358401234567" },
-                      { "label": "linkedin.html", "href": "https://www.linkedin.com/in/eemeli-kyrola/" },
-                      { "label": "github.html", "href": "https://github.com/ek-60" }
-                    ]
-                  }'
-                ></directory-listing>
-              </div>
-            </div>
-          </div>
+
+      <main-card title="// eemeli kyrölä">
+
+        <!-- Body-teksti -->
+        <div slot="body">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Totam quas iste minus voluptatem doloremque praesentium reiciendis,
+            dolorum cupiditate amet perspiciatis obcaecati magnam quia aliquid
+            odio eveniet eum modi debitis nam.
+          </p>
         </div>
-      </div>
+
+        <!-- Directory-listat -->
+        <directory-listing
+          data='{
+            "skills": [
+              { "label": "frontend.html", "href": "skills/frontend.html" },
+              { "label": "backend.html", "href": "skills/backend.html" },
+              { "label": "other.html", "href": "skills/other.html" }
+            ],
+            "about": [
+              { "label": "education.html", "href": "about/education.html" },
+              { "label": "experience.html", "href": "about/experience.html" },
+              { "label": "resume.html", "href": "about/resume.html" }
+            ],
+            "contact": [
+              { "label": "email.html", "href": "mailto:eemeli.kyrola@gmail.com" },
+              { "label": "phone.html", "href": "tel:+358401234567" },
+              { "label": "linkedin.html", "href": "https://www.linkedin.com/in/eemeli-kyrola/" },
+              { "label": "github.html", "href": "https://github.com/ek-60" }
+            ]
+          }'
+        ></directory-listing>
+
+      </main-card>
     </main>
   </body>
 </html>
