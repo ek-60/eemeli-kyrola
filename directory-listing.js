@@ -16,6 +16,8 @@ class DirectoryListing extends HTMLElement {
 
     this.shadowRoot.innerHTML = `
       <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&family=Space+Mono:wght@400&display=swap');
+
         :host {
           display: block;
 
@@ -24,8 +26,8 @@ class DirectoryListing extends HTMLElement {
           --space-medium: 20px;
 
           /* Typography */
-          --font-family-monospace: monospace;
-          --font-family-sans-serif: sans-serif;
+          --font-family-monospace: 'Space Mono', monospace;
+          --font-family-sans-serif: 'Space Grotesk', sans-serif;
           --font-size-small: 12px;
           --font-size-medium: 16px;
           --font-size-large: 20px;
@@ -113,7 +115,9 @@ class DirectoryListing extends HTMLElement {
                   .map(
                     (file) => `
                   <li>
-                    <a href="${file.href}" target="${file.target}">${file.label}</a>
+                    <a href="${file.href}" target="${file.target || "_self"}">
+                      ${file.label}${file.target === "_blank" ? " ↗" : ""}
+                    </a>
                   </li>
                 `
                   )
