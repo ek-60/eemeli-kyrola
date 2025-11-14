@@ -120,13 +120,6 @@ class MainCard extends HTMLElement {
           margin-top: var(--space-medium);
           width: 100%;
         }
-        
-        @media (max-width: 768px) {
-          .app-card {
-            width: 100% !important;
-            max-width: 100% !important;
-          }
-        }
       </style>
 
       <div class="app-card">
