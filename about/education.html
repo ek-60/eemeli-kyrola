@@ -14,13 +14,16 @@
     <!-- Custom elements -->
     <script src="../main-card.js" defer></script>
     <script src="../directory-listing.js" defer></script>
+    <script src="../back-button.js" defer></script>
   </head>
 
   <body>
     <main class="app-main">
 
-      <main-card title="// education">
+      <main-card>
 
+        <back-button slot="top"></back-button>
+      
         <div slot="body">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -29,7 +32,7 @@
             magnam quia aliquid odio eveniet eum modi debitis nam.
           </p>
         </div>
-        
+
         <directory-listing
           slot="body"
           data='{
