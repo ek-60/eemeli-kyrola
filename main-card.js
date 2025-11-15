@@ -137,9 +137,7 @@ class MainCard extends HTMLElement {
 
             <div class="grid-content">
 
-              <div class="grid-content-top">
-                <slot name="top"></slot>
-              </div>
+              <slot name="top"></slot>
 
               <header class="grid-content-header">
                 <h1>// eemeli kyrola</h1>
