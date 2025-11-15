@@ -67,6 +67,10 @@ class MainCard extends HTMLElement {
           gap: var(--space-medium);
         }
 
+        .grid-content-top {
+          margin-bottom: var(--space-small);
+        }
+
         .grid-content-header h1 {
           font-size: var(--font-size-large);
           font-family: var(--font-family-monospace);
@@ -114,12 +118,6 @@ class MainCard extends HTMLElement {
           left: 0;
           top: 0;
         }
-
-        /* Slotin marginaali sama kuin aiemmin directory-listing classissa */
-        .slot-wrapper {
-          margin-top: var(--space-medium);
-          width: 100%;
-        }
       </style>
 
       <div class="app-card">
@@ -138,6 +136,11 @@ class MainCard extends HTMLElement {
             </div>
 
             <div class="grid-content">
+
+              <div class="grid-content-top">
+                <slot name="top"></slot>
+              </div>
+
               <header class="grid-content-header">
                 <h1>// eemeli kyrola</h1>
               </header>
