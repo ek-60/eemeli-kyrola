@@ -5,14 +5,57 @@ class DirectoryListing extends HTMLElement {
   }
 
   connectedCallback() {
-    const dataAttr = this.getAttribute("data");
-    let data = {};
+    this.render();
+  }
 
+  getData() {
+    const raw = this.getAttribute("data") || "{}";
     try {
-      data = JSON.parse(dataAttr || "{}");
-    } catch (e) {
-      console.error("directory-listing: invalid JSON in data attribute");
+      return JSON.parse(raw);
+    } catch {
+      console.error("directory-listing: invalid JSON");
+      return {};
     }
+  }
+
+  renderDescription(text) {
+    if (!text) return "";
+    return `<div class="description">${text}</div>`;
+  }
+
+  renderFile(file) {
+    if (!file.href) {
+      return `
+        <li>
+          <span>${file.label}</span>
+          ${this.renderDescription(file.description)}
+        </li>
+      `;
+    }
+
+    return `
+      <li>
+        <a href="${file.href}" target="${file.target || "_self"}">
+          ${file.label}${file.target === "_blank" ? " ↗" : ""}
+        </a>
+        ${this.renderDescription(file.description)}
+      </li>
+    `;
+  }
+
+  renderFolder(folderName, files) {
+    return `
+      <li class="directory-folder">
+        <h2 class="folder-name">${folderName}</h2>
+        <ul class="file-list">
+          ${files.map((file) => this.renderFile(file)).join("")}
+        </ul>
+      </li>
+    `;
+  }
+
+  render() {
+    const data = this.getData();
 
     this.shadowRoot.innerHTML = `
       <style>
@@ -34,7 +77,7 @@ class DirectoryListing extends HTMLElement {
           --color-link: #0366d6;
         }
 
-        h2, h3 {
+        h2 {
           font-size: var(--font-size-medium);
           font-family: var(--font-family-sans-serif);
           font-weight: var(--font-weight-bold);
@@ -48,10 +91,6 @@ class DirectoryListing extends HTMLElement {
           display: flex;
           flex-direction: column;
           gap: var(--space-medium);
-        }
-
-        .folder-name {
-          margin-bottom: var(--space-small);
         }
 
         .file-list {
@@ -90,7 +129,6 @@ class DirectoryListing extends HTMLElement {
           background-color: #ccc;
         }
 
-        /* LINKIT */
         .file-list a {
           font-family: var(--font-family-monospace);
           font-size: var(--font-size-small);
@@ -98,19 +136,16 @@ class DirectoryListing extends HTMLElement {
           text-decoration: none;
         }
 
-        .file-list a:hover,
-        .file-list a:focus-visible {
+        .file-list a:hover {
           text-decoration: underline;
         }
 
-        /* TEKSTI */
         .file-list span {
           font-family: var(--font-family-monospace);
           font-size: var(--font-size-small);
           color: var(--color-text);
         }
 
-        /* DESCRIPTION */
         .description {
           font-family: var(--font-family-monospace);
           font-size: var(--font-size-small);
@@ -124,44 +159,7 @@ class DirectoryListing extends HTMLElement {
 
       <ul class="directory-list">
         ${Object.entries(data)
-          .map(
-            ([folderName, files]) => `
-            <li class="directory-folder">
-              <h2 class="folder-name">${folderName}</h2>
-              <ul class="file-list">
-                ${files
-                  .map((file) => {
-                    if (!file.href) {
-                      return `
-                        <li>
-                          <span>${file.label}</span>
-                          ${
-                            file.description
-                              ? `<div class="description">${file.description}</div>`
-                              : ""
-                          }
-                        </li>
-                      `;
-                    }
-
-                    return `
-                      <li>
-                        <a href="${file.href}" target="${file.target || "_self"}">
-                          ${file.label}${file.target === "_blank" ? " ↗" : ""}
-                        </a>
-                        ${
-                          file.description
-                            ? `<div class="description">${file.description}</div>`
-                            : ""
-                        }
-                      </li>
-                    `;
-                  })
-                  .join("")}
-              </ul>
-            </li>
-          `
-          )
+          .map(([folder, files]) => this.renderFolder(folder, files))
           .join("")}
       </ul>
     `;
