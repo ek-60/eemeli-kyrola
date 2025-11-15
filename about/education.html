@@ -13,6 +13,7 @@
 
     <!-- Custom elements -->
     <script src="../main-card.js" defer></script>
+    <script src="../directory-listing.js" defer></script>
   </head>
 
   <body>
@@ -28,6 +29,22 @@
             magnam quia aliquid odio eveniet eum modi debitis nam.
           </p>
         </div>
+        
+          <directory-listing
+            slot="body"
+            data='{
+              "education": [
+                {
+                  "label": "Lapland University of Applied Sciences — Bachelor of Engineering, ICT (2020–2024)",
+                  "href": "#"
+                },
+                {
+                  "label": "Espoon aikuislukio — Ylioppilas (2013–2017)",
+                  "href": "#"
+                }
+              ]
+            }'
+          ></directory-listing>
 
       </main-card>
 
