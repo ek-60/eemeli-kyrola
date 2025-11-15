@@ -5,40 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../style/styles.css" />
 
-    <title>Eemeli Kyrola - Software Engineer</title>
-    <meta
-      name="description"
-      content="Eemeli Kyrola - Software Engineer - Frontend skills"
-    />
+    <title>Frontend Skills - Eemeli Kyrola</title>
+    <meta name="description" content="Frontend development skills" />
 
-    <!-- Custom elements -->
     <script src="../main-card.js" defer></script>
-    <script src="../items-list.js" defer></script>
+    <script src="../directory-listing.js" defer></script>
     <script src="../back-button.js" defer></script>
   </head>
 
   <body>
     <main class="app-main">
 
-      <main-card title="// frontend">
-        
-        <back-button slot="body"></back-button>
-        
-        <item-list
+      <main-card>
+
+        <back-button slot="top"></back-button>
+
+        <div slot="body">
+          <p>
+            My frontend development focuses on building clean, performant and
+            component-driven user interfaces.
+          </p>
+        </div>
+
+        <directory-listing
           slot="body"
-          title="skills"
-          data='[
-            "HTML5",
-            "CSS / SCSS",
-            "JavaScript (ES6+)",
-            "Astro",
-            "React",
-            "Lit",
-            "Tailwind",
-            "REST API / Fetch",
-            "Vite"
-          ]'>
-        </item-list>
+          data='{
+            "frontend": [
+              { "label": "JavaScript" },
+              { "label": "TypeScript" },
+              { "label": "Lit" },
+              { "label": "HTML" },
+              { "label": "CSS" },
+              { "label": "Tailwind CSS" },
+              { "label": "Astro" },
+              { "label": "UI/UX Basics" }
+            ]
+          }'
+        ></directory-listing>
 
       </main-card>
 
