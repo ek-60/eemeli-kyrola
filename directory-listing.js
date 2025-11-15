@@ -100,6 +100,16 @@ class DirectoryListing extends HTMLElement {
         .file-list a:focus-visible {
           text-decoration: underline;
         }
+
+        .description {
+          font-family: var(--font-family-monospace);
+          font-size: var(--font-size-small);
+          color: #444;
+          padding-left: var(--space-small);
+          margin-top: 4px;
+          border-left: 1px dashed #ccc;
+          line-height: 1.4;
+        }
       </style>
 
       <ul class="directory-list">
@@ -111,20 +121,31 @@ class DirectoryListing extends HTMLElement {
               <ul class="file-list">
                 ${files
                   .map((file) => {
-                    // *** TÄRKEIN MUUTOS TÄSSÄ ***
+                    // ilman linkkiä
                     if (!file.href) {
                       return `
                         <li>
                           <span>${file.label}</span>
+                          ${
+                            file.description
+                              ? `<div class="description">${file.description}</div>`
+                              : ""
+                          }
                         </li>
                       `;
                     }
 
+                    // linkillä
                     return `
                       <li>
                         <a href="${file.href}" target="${file.target || "_self"}">
                           ${file.label}${file.target === "_blank" ? " ↗" : ""}
                         </a>
+                        ${
+                          file.description
+                            ? `<div class="description">${file.description}</div>`
+                            : ""
+                        }
                       </li>
                     `;
                   })
