@@ -146,10 +146,6 @@ class MainCard extends HTMLElement {
                 <slot name="body"></slot>
               </div>
 
-              <div class="slot-wrapper">
-                <slot></slot>
-              </div>
-
             </div>
           </div>
 
