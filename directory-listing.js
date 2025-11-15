@@ -29,14 +29,16 @@ class DirectoryListing extends HTMLElement {
           --font-size-small: 12px;
           --font-size-medium: 16px;
           --font-weight-bold: bold;
-          --font-color: #000000;
+
+          --color-text: #000000;
+          --color-link: #0366d6;
         }
 
         h2, h3 {
           font-size: var(--font-size-medium);
           font-family: var(--font-family-sans-serif);
           font-weight: var(--font-weight-bold);
-          color: var(--font-color);
+          color: var(--color-text);
         }
 
         .directory-list {
@@ -88,12 +90,12 @@ class DirectoryListing extends HTMLElement {
           background-color: #ccc;
         }
 
-        .file-list a,
-        .file-list span {
+        /* LINKIT */
+        .file-list a {
           font-family: var(--font-family-monospace);
           font-size: var(--font-size-small);
+          color: var(--color-link);
           text-decoration: none;
-          color: var(--font-color);
         }
 
         .file-list a:hover,
@@ -101,6 +103,14 @@ class DirectoryListing extends HTMLElement {
           text-decoration: underline;
         }
 
+        /* TEKSTI */
+        .file-list span {
+          font-family: var(--font-family-monospace);
+          font-size: var(--font-size-small);
+          color: var(--color-text);
+        }
+
+        /* DESCRIPTION */
         .description {
           font-family: var(--font-family-monospace);
           font-size: var(--font-size-small);
@@ -121,7 +131,6 @@ class DirectoryListing extends HTMLElement {
               <ul class="file-list">
                 ${files
                   .map((file) => {
-                    // ilman linkkiä
                     if (!file.href) {
                       return `
                         <li>
@@ -135,7 +144,6 @@ class DirectoryListing extends HTMLElement {
                       `;
                     }
 
-                    // linkillä
                     return `
                       <li>
                         <a href="${file.href}" target="${file.target || "_self"}">
