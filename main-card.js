@@ -5,7 +5,6 @@ class MainCard extends HTMLElement {
   }
 
   connectedCallback() {
-    const title = this.getAttribute("title") || "";
 
     this.shadowRoot.innerHTML = `
       <style>
@@ -20,8 +19,6 @@ class MainCard extends HTMLElement {
           --font-size-small: 12px;
           --font-size-medium: 16px;
           --font-size-large: 20px;
-          --font-weight-bold: bold;
-          --font-weight-normal: normal;
           --font-color: #000000;
 
           display: block;
@@ -67,16 +64,11 @@ class MainCard extends HTMLElement {
           gap: var(--space-medium);
         }
 
-        .grid-content-top {
-          margin-bottom: var(--space-small);
-        }
-
         .grid-content-header h1 {
           font-size: var(--font-size-large);
           font-family: var(--font-family-monospace);
           color: var(--font-color);
           margin: 0;
-          padding: 0;
         }
 
         .cross {
@@ -118,6 +110,18 @@ class MainCard extends HTMLElement {
           left: 0;
           top: 0;
         }
+
+        footer {
+          font-family: var(--font-family-monospace);
+          font-size: var(--font-size-small);
+          color: #666;
+          opacity: 0.9;
+          text-align: right;
+          width: 100%;
+          border-top: 1px dashed #cccccc;
+          padding-top: var(--space-small);
+          padding-bottom: var(--space-small);
+        }
       </style>
 
       <div class="app-card">
@@ -149,6 +153,8 @@ class MainCard extends HTMLElement {
 
             </div>
           </div>
+
+          <footer>eemeli kyrölä 2025</footer>
 
         </div>
       </div>
