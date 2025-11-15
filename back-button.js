@@ -5,6 +5,7 @@ class BackButton extends HTMLElement {
   }
 
   connectedCallback() {
+
     this.shadowRoot.innerHTML = `
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&display=swap');
@@ -21,7 +22,7 @@ class BackButton extends HTMLElement {
         }
       </style>
 
-      <a href="javascript:history.back()">← back</a>
+      <a href="/">← back</a>
     `;
   }
 }
