@@ -21,18 +21,14 @@ class DirectoryListing extends HTMLElement {
         :host {
           display: block;
 
-          /* Spacing */
           --space-small: 10px;
           --space-medium: 20px;
 
-          /* Typography */
           --font-family-monospace: 'Space Mono', monospace;
           --font-family-sans-serif: 'Space Grotesk', sans-serif;
           --font-size-small: 12px;
           --font-size-medium: 16px;
-          --font-size-large: 20px;
           --font-weight-bold: bold;
-          --font-weight-normal: normal;
           --font-color: #000000;
         }
 
@@ -92,10 +88,12 @@ class DirectoryListing extends HTMLElement {
           background-color: #ccc;
         }
 
-        .file-list a {
-          text-decoration: none;
+        .file-list a,
+        .file-list span {
           font-family: var(--font-family-monospace);
           font-size: var(--font-size-small);
+          text-decoration: none;
+          color: var(--font-color);
         }
 
         .file-list a:hover,
@@ -112,15 +110,24 @@ class DirectoryListing extends HTMLElement {
               <h2 class="folder-name">${folderName}</h2>
               <ul class="file-list">
                 ${files
-                  .map(
-                    (file) => `
-                  <li>
-                    <a href="${file.href}" target="${file.target || "_self"}">
-                      ${file.label}${file.target === "_blank" ? " ↗" : ""}
-                    </a>
-                  </li>
-                `
-                  )
+                  .map((file) => {
+                    // *** TÄRKEIN MUUTOS TÄSSÄ ***
+                    if (!file.href) {
+                      return `
+                        <li>
+                          <span>${file.label}</span>
+                        </li>
+                      `;
+                    }
+
+                    return `
+                      <li>
+                        <a href="${file.href}" target="${file.target || "_self"}">
+                          ${file.label}${file.target === "_blank" ? " ↗" : ""}
+                        </a>
+                      </li>
+                    `;
+                  })
                   .join("")}
               </ul>
             </li>
