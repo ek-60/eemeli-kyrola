@@ -5,29 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../style/styles.css" />
 
-    <title>Eemeli Kyrola - Software Engineer</title>
-    <meta
-      name="description"
-      content="Eemeli Kyrola - Software Engineer - Other skills"
-    />
+    <title>Other Skills - Eemeli Kyrola</title>
+    <meta name="description" content="Other development skills" />
 
-    <!-- Custom elements -->
     <script src="../main-card.js" defer></script>
+    <script src="../directory-listing.js" defer></script>
+    <script src="../back-button.js" defer></script>
   </head>
 
   <body>
     <main class="app-main">
 
-      <main-card title="// other">
+      <main-card>
+
+        <back-button slot="top"></back-button>
 
         <div slot="body">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Totam quas iste minus voluptatem doloremque praesentium
-            reiciendis, dolorum cupiditate amet perspiciatis obcaecati
-            magnam quia aliquid odio eveniet eum modi debitis nam.
+            Additional skills and tools that support my development workflow.
           </p>
         </div>
+
+        <directory-listing
+          slot="body"
+          data='{
+            "other": [
+              { "label": "Git" },
+              { "label": "GitHub" },
+              { "label": "Bitbucket" },
+              { "label": "Figma" },
+              { "label": "VS Code" },
+              { "label": "Linux & CLI tools" },
+              { "label": "Docker Basics" }
+            ]
+          }'
+        ></directory-listing>
 
       </main-card>
 
