@@ -150,8 +150,6 @@ class MainCard extends HTMLElement {
               <div class="grid-content-body">
                 <slot name="body"></slot>
               </div>
-              
-              <footer>eemeli kyrölä 2025</footer>
 
             </div>
           </div>
