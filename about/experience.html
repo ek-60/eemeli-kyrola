@@ -13,6 +13,7 @@
 
     <script src="../main-card.js" defer></script>
     <script src="../back-button.js" defer></script>
+    <script src="../directory-listing.js" defer></script>
   </head>
 
   <body>
@@ -30,6 +31,26 @@
             magnam quia aliquid odio eveniet eum modi debitis nam.
           </p>
         </div>
+        
+        <directory-listing
+          slot="body"
+          data='{
+            "experience": [
+              {
+                "label": "Junior Software Developer — Grade — Full-time (Mar 2024 – Present)",
+                "description": "Developed internal tools and full-stack features in a fast-paced product team."
+              },
+              {
+                "label": "Technical Services Advisor — Höyry — Full-time (May 2023 – Jan 2024)",
+                "description": "Handled technical customer support, integrations and service troubleshooting."
+              },
+              {
+                "label": "ICT Trainee — Finnish Immigration Service — Internship (Jun 2022 – Aug 2022)",
+                "description": "Provided daily IT support, device management and documentation assistance."
+              }
+            ]
+          }'
+        ></directory-listing>
 
       </main-card>
 
