@@ -139,7 +139,7 @@ class MainCard extends HTMLElement {
 
             <div class="grid-content">
               <header class="grid-content-header">
-                <h1>${title}</h1>
+                <h1>// eemeli kyrola</h1>
               </header>
 
               <div class="grid-content-body">
