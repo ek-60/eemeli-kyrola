@@ -36,11 +36,13 @@ class MainCard extends HTMLElement {
 
         /* DESKTOP: breakpoint muutettu 980px → 600x600 kortti */
         @media (min-width: 980px) {
-          .card {
+          :host {
             justify-content: center;
             align-items: center;
-            width: 600px;
-            height: 600px;
+          }
+          .card {
+            width: 980px;
+            height: 980px;
             overflow-y: auto; /* skrolli pitkälle sisällölle */
           }
         }
