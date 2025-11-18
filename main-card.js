@@ -18,8 +18,6 @@ class MainCard extends HTMLElement {
         }
 
         .card {
-          flex-grow: 1;
-
           margin: 20px;
           padding: 20px;
 
