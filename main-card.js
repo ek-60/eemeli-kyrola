@@ -18,6 +18,10 @@ class MainCard extends HTMLElement {
           min-height: 100svh;
           box-sizing: border-box;
           background: #fff;
+
+          /* desktop keskitys */
+          justify-content: center;
+          align-items: center;
         }
 
         .card {
@@ -29,6 +33,19 @@ class MainCard extends HTMLElement {
           display: flex;
           flex-direction: column;
           gap: 20px;
+
+          /* mobiili oletus */
+          width: calc(100% - 40px);
+          height: auto;
+        }
+
+        /* DESKTOP: breakpoint muutettu 980px → 600x600 kortti */
+        @media (min-width: 980px) {
+          .card {
+            width: 600px;
+            height: 600px;
+            overflow-y: auto; /* skrolli pitkälle sisällölle */
+          }
         }
 
         .back-link {
@@ -38,9 +55,7 @@ class MainCard extends HTMLElement {
           text-decoration: none;
         }
 
-        .back-link:hover {
-          text-decoration: underline;
-        }
+        .back-link:hover { text-decoration: underline; }
 
         .cross {
           position: absolute;
