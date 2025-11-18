@@ -138,6 +138,10 @@ class DirectoryListing extends HTMLElement {
         .file-list a:hover {
           text-decoration: underline;
         }
+        
+        .file-list a:visited {
+          color: #551a8b;
+        }
 
         .file-list span {
           font-family: var(--font-family-monospace);
