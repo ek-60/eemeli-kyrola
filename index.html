@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Keskitetty laatikko</title>
+  <title>Eemeli Kyrola - Software Engineer</title>
+  <meta name="description" content="Eemeli Kyrola - Software Engineer" />
+
+  <script src="./main-card.js" defer></script>
+  <script src="./directory-listing.js" defer></script>
+  
   <style>
     html, body {
       height: 100%;
@@ -36,7 +41,42 @@
 <body>
 
   <main>
-    <div class="box"></div>
+    <div class="box">
+      <main-card title="// eemeli kyrölä">
+
+        <div slot="body">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Totam quas iste minus voluptatem doloremque praesentium reiciendis,
+            dolorum cupiditate amet perspiciatis obcaecati magnam quia aliquid
+            odio eveniet eum modi debitis nam.
+          </p>
+        </div>
+
+        <directory-listing
+          slot="body"
+          data='{
+            "about": [
+              { "label": "education.html", "target": "_self", "href": "about/education.html" },
+              { "label": "experience.html", "target": "_self", "href": "about/experience.html" },
+              { "label": "resume.pdf", "target": "_blank", "href": "about/resume.pdf" }
+            ],
+            "skills": [
+              { "label": "frontend.html", "target": "_self", "href": "skills/frontend.html" },
+              { "label": "backend.html", "target": "_self", "href": "skills/backend.html" },
+              { "label": "other.html", "target": "_self", "href": "skills/other.html" }
+            ],
+            "contact": [
+              { "label": "eemeli.kyrola@gmail.com", "href": "mailto:eemeli.kyrola@gmail.com" },
+              { "label": "+358400998515", "href": "tel:+358400998515" },
+              { "label": "linkedin.html", "target": "_blank", "href": "https://www.linkedin.com/in/eemeli-kyrola/" },
+              { "label": "github.html", "target": "_blank", "href": "https://github.com/ek-60" }
+            ]
+          }'
+        ></directory-listing>
+
+      </main-card>
+    </div>
   </main>
 
 </body>
