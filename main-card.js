@@ -24,12 +24,10 @@ class MainCard extends HTMLElement {
         }
 
         .app-card {
-          /* background-color: #ffffff; */
           border: none;
           display: inline-flex;
           flex-direction: column;
           position: relative;
-          padding: 20px;
           box-sizing: border-box;
         }
 
