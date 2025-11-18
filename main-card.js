@@ -26,8 +26,6 @@ class MainCard extends HTMLElement {
           margin: 20px;
           padding: 20px;
 
-          background: #1e3a8a;
-          color: white;
           box-sizing: border-box;
 
           position: relative;
