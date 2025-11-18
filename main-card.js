@@ -19,64 +19,62 @@ class MainCard extends HTMLElement {
 
           display: flex;
           justify-content: center;
-          align-items: center;
-
+          align-items: center;      /* desktop keskitys */
           width: 100%;
-          height: 100vh;     /* ← KRIITTINEN KORJAUS */
+          min-height: 100vh;        /* host = sivun korkeus */
           box-sizing: border-box;
-
           padding: 20px;
         }
 
+        /* ------------ DESKTOP ------------ */
         .app-card {
           width: 100%;
           max-width: 600px;
           min-height: 600px;
-
           display: flex;
           flex-direction: column;
-          flex-grow: 1;
-
-          height: 100%;      /* ← KRIITTINEN KORJAUS */
+          flex-grow: 1;             /* venyy kun host antaa tilaa */
           box-sizing: border-box;
+
+          /* EI height-määrittelyä */
         }
 
+        /* ------------ MOBILE ------------ */
         @media (max-width: 767px) {
           :host {
-            align-items: flex-start;
-            padding: 0;
+            align-items: flex-start; /* alkaa heti ylhäältä */
+            padding: 0;              /* ei välejä */
           }
 
           .app-card {
+            width: 100%;             /* täysi leveys */
             max-width: none;
-            width: 100%;
-            height: 100vh;     /* ← KOKO MOBIILIN KORKEUS */
-            min-height: 100vh;
+            min-height: auto;        /* EI 100vh */
+            flex-grow: 0;            /* kortti kasvaa sisällön mukaan */
           }
         }
 
+        /* --- inner layout --- */
+
         .grid-container {
-          flex: 1;
           display: flex;
           flex-direction: column;
-          height: 100%;       /* ← KRIITTINEN */
+          /* EI height määrittelyä */
         }
 
         .grid {
-          flex: 1;
           display: flex;
           flex-direction: column;
           position: relative;
           border: 1px solid #ccc;
-          height: 100%;       /* ← KRIITTINEN */
+          /* EI height:100% */
         }
 
         .grid-content {
-          flex: 1;
-          display: flex;
-          flex-direction: column;
           padding: var(--space-medium);
           gap: var(--space-medium);
+          display: flex;
+          flex-direction: column;
         }
 
         .grid-content-header h1 {
@@ -86,7 +84,6 @@ class MainCard extends HTMLElement {
         }
 
         .grid-content-body {
-          flex: 1;
           display: flex;
           flex-direction: column;
         }
@@ -119,6 +116,7 @@ class MainCard extends HTMLElement {
           height: var(--space-small);
           border-bottom-width: 1px;
         }
+
       </style>
 
       <div class="app-card">
