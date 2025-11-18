@@ -1,5 +1,5 @@
 @import './tokens.css';
-
+/*
 html,
 body {
     height: 100%;
@@ -7,7 +7,6 @@ body {
     padding: 0;
 }
 
-/* Desktop: keskitetty kortti */
 .app-main {
     min-height: 100svh;
     display: flex;
@@ -15,7 +14,6 @@ body {
     align-items: center;
 }
 
-/* Mobiili: kortti ylös */
 @media (max-width: 768px) {
     .app-main {
         height: 100svh;
