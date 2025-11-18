@@ -1,4 +1,33 @@
 @import './tokens.css';
+
+html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    main {
+      min-height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box {
+      background-color: #007bff;
+      max-width: 600px;
+      min-height: 600px;
+      width: 100%;
+      margin: 20px;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        height: 100%;      /* Käytä täyttä korkeutta mobiilissa */
+        align-items: flex-start;
+      }
+    }
+
+
 /*
 html,
 body {
