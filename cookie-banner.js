@@ -134,3 +134,9 @@ class CookieBanner extends HTMLElement {
 }
 
 customElements.define("cookie-banner", CookieBanner);
+
+window.addEventListener("DOMContentLoaded", () => {
+  if (!document.querySelector("cookie-banner")) {
+    document.body.appendChild(document.createElement("cookie-banner"));
+  }
+});
