@@ -14,16 +14,11 @@
     <!-- Custom elements -->
     <script src="../main-card.js" defer></script>
     <script src="../directory-listing.js" defer></script>
-    <script src="../back-button.js" defer></script>
   </head>
 
   <body>
-    <main class="app-main">
-
-      <main-card class="box">
-
-        <back-button slot="top"></back-button>
-      
+    <main>
+      <main-card>
         <directory-listing
           slot="body"
           data='{
@@ -33,9 +28,7 @@
             ]
           }'
         ></directory-listing>
-
       </main-card>
-
     </main>
   </body>
 </html>
