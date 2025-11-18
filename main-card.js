@@ -6,155 +6,112 @@ class MainCard extends HTMLElement {
 
   connectedCallback() {
 
+    const showBack = window.location.pathname !== "/";
+
     this.shadowRoot.innerHTML = `
       <style>
+
         :host {
-          --space-small: 10px;
-          --space-medium: 20px;
-          --card-width: 900px;
-          --card-height: 600px;
-
-          --font-family-monospace: monospace;
-          --font-family-sans-serif: sans-serif;
-          --font-size-small: 12px;
-          --font-size-medium: 16px;
-          --font-size-large: 20px;
-          --font-color: #000000;
-
-          display: block;
+          display: flex;
+          width: 100%;
+          height: auto;
+          min-height: 100svh;
           box-sizing: border-box;
+          background: #fff;
         }
 
-        .app-card {
-          background-color: #ffffff;
-          max-width: var(--card-width);
-          min-height: var(--card-height);
-          border: none;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          position: relative;
+        .card {
+          margin: 20px;
           padding: 20px;
-        }
-
-        .grid-container {
-          width: 100%;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: var(--space-medium);
-          flex-grow: 1;
-        }
-
-        .grid {
-          display: flex;
-          flex-grow: 1;
-          width: 100%;
+          box-sizing: border-box;
           position: relative;
           border: 1px solid #cccccc;
-        }
-
-        .grid-content {
           display: flex;
           flex-direction: column;
-          width: 100%;
-          flex-grow: 1;
-          padding: var(--space-medium);
-          gap: var(--space-medium);
+          gap: 20px;
+
+          /* mobiili oletus */
+          width: calc(100% - 40px);
         }
 
-        .grid-content-header h1 {
-          font-size: var(--font-size-large);
-          font-family: var(--font-family-monospace);
-          color: var(--font-color);
-          margin: 0;
+        /* DESKTOP: breakpoint muutettu 980px → 600x600 kortti */
+        @media (min-width: 980px) {
+          .card {
+            justify-content: center;
+            align-items: center;
+            width: 600px;
+            height: 600px;
+            overflow-y: auto; /* skrolli pitkälle sisällölle */
+          }
         }
+
+        .back-link {
+          font-family: monospace;
+          font-size: 14px;
+          color: #000;
+          text-decoration: none;
+        }
+
+        .back-link:hover { text-decoration: underline; }
 
         .cross {
           position: absolute;
-          width: var(--space-medium);
-          height: var(--space-medium);
+          width: 20px;
+          height: 20px;
           z-index: 10;
         }
 
-        .cross-top-left {
-          top: -11px;
-          left: -11px;
-        }
-
-        .cross-bottom-right {
-          bottom: -10px;
-          right: -10px;
-        }
+        .cross-top-left { top: -10px; left: -10px; }
+        .cross-bottom-right { bottom: -10px; right: -10px; }
 
         .cross-line {
           position: absolute;
-          border-color: #999999;
+          border-color: #999;
           border-style: solid;
           border-width: 0;
         }
 
-        .cross-line-vertical {
-          width: var(--space-small);
-          height: var(--space-medium);
-          border-right-width: 1px;
-          left: 0;
-          top: 0;
+        .cross-line-vertical { width: 10px; height: 20px; border-right-width: 1px; }
+        .cross-line-horizontal { width: 20px; height: 10px; border-bottom-width: 1px; }
+
+        header.card-header h1 {
+          margin: 0;
+          font-family: monospace;
+          font-size: 22px;
+          font-weight: 600;
         }
 
-        .cross-line-horizontal {
-          width: var(--space-medium);
-          height: var(--space-small);
-          border-bottom-width: 1px;
-          left: 0;
-          top: 0;
+        .card-content {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
         }
 
-        footer {
-          font-family: var(--font-family-monospace);
-          font-size: var(--font-size-small);
-          color: #666;
-          opacity: 0.9;
-          text-align: right;
-          width: 100%;
-          border-top: 1px dashed #cccccc;
-          padding-top: var(--space-small);
-          padding-bottom: var(--space-small);
-        }
       </style>
 
-      <div class="app-card">
-        <div class="grid-container">
+      <div class="card">
 
-          <div class="grid">
-            
-            <div class="cross cross-top-left">
-              <div class="cross-line cross-line-vertical"></div>
-              <div class="cross-line cross-line-horizontal"></div>
-            </div>
-
-            <div class="cross cross-bottom-right">
-              <div class="cross-line cross-line-vertical"></div>
-              <div class="cross-line cross-line-horizontal"></div>
-            </div>
-
-            <div class="grid-content">
-
-              <slot name="top"></slot>
-
-              <header class="grid-content-header">
-                <h1>// eemeli kyrola</h1>
-              </header>
-
-              <div class="grid-content-body">
-                <slot name="body"></slot>
-              </div>
-
-            </div>
-          </div>
-
+        <div class="cross cross-top-left">
+          <div class="cross-line cross-line-vertical"></div>
+          <div class="cross-line cross-line-horizontal"></div>
         </div>
+
+        <div class="cross cross-bottom-right">
+          <div class="cross-line cross-line-vertical"></div>
+          <div class="cross-line cross-line-horizontal"></div>
+        </div>
+
+        ${showBack ? `<a class="back-link" href="/">← back</a>` : ``}
+
+        <header class="card-header">
+          <h1>// eemeli kyrola</h1>
+        </header>
+
+        <div class="card-content">
+          <slot name="body"></slot>
+        </div>
+
       </div>
     `;
   }

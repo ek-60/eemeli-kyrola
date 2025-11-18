@@ -59,7 +59,6 @@ class DirectoryListing extends HTMLElement {
 
     this.shadowRoot.innerHTML = `
       <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&family=Space+Mono:wght@400&display=swap');
 
         :host {
           display: block;
@@ -67,8 +66,8 @@ class DirectoryListing extends HTMLElement {
           --space-small: 10px;
           --space-medium: 20px;
 
-          --font-family-monospace: 'Space Mono', monospace;
-          --font-family-sans-serif: 'Space Grotesk', sans-serif;
+          --font-family-monospace: monospace;
+          --font-family-sans-serif: sans-serif;
           --font-size-small: 12px;
           --font-size-medium: 16px;
           --font-weight-bold: bold;

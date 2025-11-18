@@ -10,23 +10,17 @@
 
     <script src="../main-card.js" defer></script>
     <script src="../directory-listing.js" defer></script>
-    <script src="../back-button.js" defer></script>
   </head>
 
   <body>
-    <main class="app-main">
-
+    <main>
       <main-card>
-
-        <back-button slot="top"></back-button>
-
         <div slot="body">
           <p>
             My backend skills focus on building stable, secure and scalable
             application logic and integrations.
           </p>
         </div>
-
         <directory-listing
           slot="body"
           data='{
@@ -42,9 +36,7 @@
             ]
           }'
         ></directory-listing>
-
       </main-card>
-
     </main>
   </body>
 </html>
