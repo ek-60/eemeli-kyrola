@@ -8,88 +8,89 @@ class MainCard extends HTMLElement {
 
     this.shadowRoot.innerHTML = `
       <style>
-        /******************************************
-         * HOST: ei mitään mittoja, ei korkeuksia
-         ******************************************/
+
+        /********************************
+         * HOST 
+         ********************************/
         :host {
           display: flex;
           justify-content: center;
-          align-items: center;      /* desktop-keskitys */
-          box-sizing: border-box;
+          align-items: center;     /* desktop keskitys */
           width: 100%;
+          min-height: 100vh;       /* sivu venyy, kortti ei */
+          box-sizing: border-box;
           padding: 20px;
         }
 
-        /******************************************
-         * DESKTOP: varsinainen kortti, kaikki mitat
-         ******************************************/
+        /********************************
+         * APP CARD (KORTTI)
+         ********************************/
         .app-card {
           display: flex;
           flex-direction: column;
           box-sizing: border-box;
 
           width: 100%;
-          max-width: 600px;    /* desktop max width */
-          min-height: 600px;   /* desktop min height */
+          max-width: 600px;      /* desktop max */
+          min-height: 600px;     /* desktop min */
 
-          border: 1px solid transparent; /* layout-stabiloija */
+          flex-grow: 1;          /* TÄRKEÄ: venyy hostin sisällä */
         }
 
-        /******************************************
-         * MOBILE: EI keskitystä + vie koko leveyden
-         *         KASVAA sisällön mukaan
-         ******************************************/
+        /********************************
+         * MOBILE FIX
+         ********************************/
         @media (max-width: 767px) {
+
           :host {
-            align-items: flex-start;   /* EI keskitystä ylhäällä */
-            padding: 0;                /* ei ylimääräistä tilaa */
+            align-items: flex-start;    /* EI keskity mobiilissa */
+            padding: 0;                /* EI ylimääräistä yläreunaa */
+            min-height: auto;          /* EI pakotettua 100vh:ta */
           }
 
           .app-card {
-            width: 100%;               /* mobiilileveys */
+            width: 100%;
             max-width: none;
-            min-height: auto;          /* EI pakotettua korkeutta */
+            min-height: 100%;          /* venyy ympäristön mukaan */
+            flex-grow: 1;              /* VENYÄ hostin täyteen */
           }
         }
 
-        /******************************************
-         * Inner layout (mikä sinulla jo toimii)
-         ******************************************/
+        /********************************
+         * INNER LAYOUT
+         ********************************/
         .grid-container {
+          flex: 1;                 
           display: flex;
           flex-direction: column;
+          box-sizing: border-box;
         }
 
         .grid {
-          position: relative;
+          flex: 1;
           display: flex;
           flex-direction: column;
+          position: relative;
           border: 1px solid #ccc;
         }
 
         .grid-content {
-          padding: var(--space-medium);
+          padding: 20px;
           display: flex;
           flex-direction: column;
-          gap: var(--space-medium);
-        }
-
-        .grid-content-header h1 {
-          margin: 0;
-          font-size: var(--font-size-large);
-          font-family: var(--font-family-monospace);
+          gap: 20px;
+          flex-grow: 1;
         }
 
         .grid-content-body {
-          display: flex;
-          flex-direction: column;
+          flex-grow: 1;
         }
 
+        /* crosses */
         .cross {
           position: absolute;
-          width: var(--space-medium);
-          height: var(--space-medium);
-          z-index: 10;
+          width: 20px;
+          height: 20px;
         }
 
         .cross-top-left { top: -11px; left: -11px; }
@@ -103,16 +104,17 @@ class MainCard extends HTMLElement {
         }
 
         .cross-line-vertical {
-          width: var(--space-small);
-          height: var(--space-medium);
+          width: 10px;
+          height: 20px;
           border-right-width: 1px;
         }
 
         .cross-line-horizontal {
-          width: var(--space-medium);
-          height: var(--space-small);
+          width: 20px;
+          height: 10px;
           border-bottom-width: 1px;
         }
+
       </style>
 
       <div class="app-card">
@@ -133,7 +135,7 @@ class MainCard extends HTMLElement {
             <div class="grid-content">
               <slot name="top"></slot>
 
-              <header class="grid-content-header">
+              <header>
                 <h1>// eemeli kyrola</h1>
               </header>
 
