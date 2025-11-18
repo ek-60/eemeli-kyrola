@@ -11,8 +11,6 @@ class MainCard extends HTMLElement {
         :host {
           --space-small: 10px;
           --space-medium: 20px;
-          --card-width: 900px;
-          --card-height: 600px;
 
           --font-family-monospace: monospace;
           --font-family-sans-serif: sans-serif;
@@ -21,47 +19,39 @@ class MainCard extends HTMLElement {
           --font-size-large: 20px;
           --font-color: #000000;
 
-          display: block;
+          display: inline-block;
           box-sizing: border-box;
         }
 
         .app-card {
           background-color: #ffffff;
-          max-width: var(--card-width);
-          min-height: var(--card-height);
           border: none;
-          display: flex;
+          display: inline-flex;
           flex-direction: column;
-          align-items: center;
-          justify-content: center;
           position: relative;
           padding: 20px;
+          box-sizing: border-box;
         }
 
         .grid-container {
-          width: 100%;
-          display: flex;
+          display: inline-flex;
           flex-direction: column;
-          align-items: center;
           gap: var(--space-medium);
-          flex-grow: 1;
+          align-items: flex-start;
         }
 
         .grid {
-          display: flex;
-          flex-grow: 1;
-          width: 100%;
+          display: inline-flex;
           position: relative;
           border: 1px solid #cccccc;
         }
 
         .grid-content {
-          display: flex;
+          display: inline-flex;
           flex-direction: column;
-          width: 100%;
-          flex-grow: 1;
           padding: var(--space-medium);
           gap: var(--space-medium);
+          box-sizing: border-box;
         }
 
         .grid-content-header h1 {
@@ -128,7 +118,7 @@ class MainCard extends HTMLElement {
         <div class="grid-container">
 
           <div class="grid">
-            
+
             <div class="cross cross-top-left">
               <div class="cross-line cross-line-vertical"></div>
               <div class="cross-line cross-line-horizontal"></div>
@@ -140,7 +130,6 @@ class MainCard extends HTMLElement {
             </div>
 
             <div class="grid-content">
-
               <slot name="top"></slot>
 
               <header class="grid-content-header">
@@ -150,8 +139,8 @@ class MainCard extends HTMLElement {
               <div class="grid-content-body">
                 <slot name="body"></slot>
               </div>
-
             </div>
+
           </div>
 
         </div>
