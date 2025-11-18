@@ -19,25 +19,42 @@ class MainCard extends HTMLElement {
           --font-size-large: 20px;
           --font-color: #000000;
 
-          display: block;       /* Safari-vaatimus */
-          height: 100%;         /* Korjattu typo */
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          width: 100%;
+          min-height: 100vh;       /* host voi täyttää ruudun */
           box-sizing: border-box;
         }
 
+        /* --- DESKTOP --- */
         .app-card {
-          height: 100%;
           width: 100%;
+          max-width: 600px;        /* max 600 leveä */
+          min-height: 600px;       /* vähintään 600 korkea */
           display: flex;
+          box-sizing: border-box;
+        }
+
+        /* --- MOBILE --- */
+        @media (max-width: 767px) {
+          .app-card {
+            width: 100%;           /* leveys 100% */
+            max-width: 600px;      /* ei ylitä */
+            min-height: 600px;     /* min-korkeus sama */
+            height: auto;          /* EI 100vh */
+          }
         }
 
         .grid-container {
-          flex: 1;               /* Täyttää kaiken tilan */
+          flex: 1;
           display: flex;
           flex-direction: column;
         }
 
         .grid {
-          flex: 1;               /* Kasvaa koko korkeuteen */
+          flex: 1;
           position: relative;
           border: 1px solid #cccccc;
           display: flex;
@@ -45,7 +62,7 @@ class MainCard extends HTMLElement {
         }
 
         .grid-content {
-          flex: 1;               /* Vie kaiken tilan */
+          flex: 1;
           display: flex;
           flex-direction: column;
           padding: var(--space-medium);
@@ -61,7 +78,7 @@ class MainCard extends HTMLElement {
         }
 
         .grid-content-body {
-          flex: 1;               /* Body kasvaa */
+          flex: 1;
           display: flex;
           flex-direction: column;
         }
@@ -94,28 +111,12 @@ class MainCard extends HTMLElement {
           width: var(--space-small);
           height: var(--space-medium);
           border-right-width: 1px;
-          left: 0;
-          top: 0;
         }
 
         .cross-line-horizontal {
           width: var(--space-medium);
           height: var(--space-small);
           border-bottom-width: 1px;
-          left: 0;
-          top: 0;
-        }
-
-        footer {
-          font-family: var(--font-family-monospace);
-          font-size: var(--font-size-small);
-          color: #666;
-          opacity: 0.9;
-          text-align: right;
-          width: 100%;
-          border-top: 1px dashed #cccccc;
-          padding-top: var(--space-small);
-          padding-bottom: var(--space-small);
         }
       </style>
 
