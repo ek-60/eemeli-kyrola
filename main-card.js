@@ -9,7 +9,6 @@ class MainCard extends HTMLElement {
     this.shadowRoot.innerHTML = `
       <style>
         :host {
-          /* design tokens */
           --space-small: 10px;
           --space-medium: 20px;
 
@@ -17,52 +16,50 @@ class MainCard extends HTMLElement {
           --font-size-small: 12px;
           --font-size-medium: 16px;
           --font-size-large: 20px;
-          --font-color: #000;
 
           display: flex;
           justify-content: center;
-          align-items: center;        /* desktop keskitys */
+          align-items: center;
+
           width: 100%;
-          min-height: 100vh;          /* host täyttää ruudun (mutta kortti ei pakotetusti) */
+          height: 100vh;     /* ← KRIITTINEN KORJAUS */
           box-sizing: border-box;
+
+          padding: 20px;
         }
 
-        /* ------------ DESKTOP ------------ */
         .app-card {
           width: 100%;
           max-width: 600px;
           min-height: 600px;
+
           display: flex;
           flex-direction: column;
-          flex-grow: 1;               /* ← KORTTI VENYY SISÄLLÖLLÄ */
+          flex-grow: 1;
+
+          height: 100%;      /* ← KRIITTINEN KORJAUS */
           box-sizing: border-box;
-          margin: 20px;
         }
 
-        /* ------------ MOBILE ------------ */
         @media (max-width: 767px) {
-
           :host {
-            align-items: flex-start;   /* ← Ei keskity mobiilissa */
-            padding: 0;                /* ← Kortti alkaa KOKONAAN ylhäältä */
+            align-items: flex-start;
+            padding: 0;
           }
 
           .app-card {
-            width: 100%;
             max-width: none;
-            min-height: 100%;          /* ← kasvaa niin paljon kuin host antaa */
-            height: auto;              /* ← EI 100vh pakotusta */
-            flex-grow: 1;              /* ← venyy koko host-tilan mukaan */
-            border-left: none;         /* valinnaista */
+            width: 100%;
+            height: 100vh;     /* ← KOKO MOBIILIN KORKEUS */
+            min-height: 100vh;
           }
         }
-
-        /* ------------ INNER LAYOUT ------------ */
 
         .grid-container {
           flex: 1;
           display: flex;
           flex-direction: column;
+          height: 100%;       /* ← KRIITTINEN */
         }
 
         .grid {
@@ -71,6 +68,7 @@ class MainCard extends HTMLElement {
           flex-direction: column;
           position: relative;
           border: 1px solid #ccc;
+          height: 100%;       /* ← KRIITTINEN */
         }
 
         .grid-content {
@@ -79,13 +77,12 @@ class MainCard extends HTMLElement {
           flex-direction: column;
           padding: var(--space-medium);
           gap: var(--space-medium);
-          box-sizing: border-box;
         }
 
         .grid-content-header h1 {
+          margin: 0;
           font-size: var(--font-size-large);
           font-family: var(--font-family-monospace);
-          margin: 0;
         }
 
         .grid-content-body {
@@ -122,7 +119,6 @@ class MainCard extends HTMLElement {
           height: var(--space-small);
           border-bottom-width: 1px;
         }
-
       </style>
 
       <div class="app-card">
