@@ -24,7 +24,7 @@ class MainCard extends HTMLElement {
         }
 
         .app-card {
-          background-color: #ffffff;
+          /* background-color: #ffffff; */
           border: none;
           display: inline-flex;
           flex-direction: column;
