@@ -8,73 +8,70 @@ class MainCard extends HTMLElement {
 
     this.shadowRoot.innerHTML = `
       <style>
+        /******************************************
+         * HOST: ei mitään mittoja, ei korkeuksia
+         ******************************************/
         :host {
-          --space-small: 10px;
-          --space-medium: 20px;
-
-          --font-family-monospace: monospace;
-          --font-size-small: 12px;
-          --font-size-medium: 16px;
-          --font-size-large: 20px;
-
           display: flex;
           justify-content: center;
-          align-items: center;      /* desktop keskitys */
-          width: 100%;
-          min-height: 100vh;        /* host = sivun korkeus */
+          align-items: center;      /* desktop-keskitys */
           box-sizing: border-box;
+          width: 100%;
           padding: 20px;
         }
 
-        /* ------------ DESKTOP ------------ */
+        /******************************************
+         * DESKTOP: varsinainen kortti, kaikki mitat
+         ******************************************/
         .app-card {
-          width: 100%;
-          max-width: 600px;
-          min-height: 600px;
           display: flex;
           flex-direction: column;
-          flex-grow: 1;             /* venyy kun host antaa tilaa */
           box-sizing: border-box;
 
-          /* EI height-määrittelyä */
+          width: 100%;
+          max-width: 600px;    /* desktop max width */
+          min-height: 600px;   /* desktop min height */
+
+          border: 1px solid transparent; /* layout-stabiloija */
         }
 
-        /* ------------ MOBILE ------------ */
+        /******************************************
+         * MOBILE: EI keskitystä + vie koko leveyden
+         *         KASVAA sisällön mukaan
+         ******************************************/
         @media (max-width: 767px) {
           :host {
-            align-items: flex-start; /* alkaa heti ylhäältä */
-            padding: 0;              /* ei välejä */
+            align-items: flex-start;   /* EI keskitystä ylhäällä */
+            padding: 0;                /* ei ylimääräistä tilaa */
           }
 
           .app-card {
-            width: 100%;             /* täysi leveys */
+            width: 100%;               /* mobiilileveys */
             max-width: none;
-            min-height: auto;        /* EI 100vh */
-            flex-grow: 0;            /* kortti kasvaa sisällön mukaan */
+            min-height: auto;          /* EI pakotettua korkeutta */
           }
         }
 
-        /* --- inner layout --- */
-
+        /******************************************
+         * Inner layout (mikä sinulla jo toimii)
+         ******************************************/
         .grid-container {
           display: flex;
           flex-direction: column;
-          /* EI height määrittelyä */
         }
 
         .grid {
+          position: relative;
           display: flex;
           flex-direction: column;
-          position: relative;
           border: 1px solid #ccc;
-          /* EI height:100% */
         }
 
         .grid-content {
           padding: var(--space-medium);
-          gap: var(--space-medium);
           display: flex;
           flex-direction: column;
+          gap: var(--space-medium);
         }
 
         .grid-content-header h1 {
@@ -116,7 +113,6 @@ class MainCard extends HTMLElement {
           height: var(--space-small);
           border-bottom-width: 1px;
         }
-
       </style>
 
       <div class="app-card">
