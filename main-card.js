@@ -26,6 +26,8 @@ class MainCard extends HTMLElement {
           width: 100%;
           min-height: 100vh;       /* host voi täyttää ruudun */
           box-sizing: border-box;
+          
+          padding: 20px;
         }
 
         /* --- DESKTOP --- */
