@@ -5,147 +5,56 @@ class MainCard extends HTMLElement {
   }
 
   connectedCallback() {
-
     this.shadowRoot.innerHTML = `
       <style>
-
-        /********************************
-         * HOST 
-         ********************************/
+        /* Koko komponentti: korkeus 100svh (mobile default) */
         :host {
-          display: flex;
-          justify-content: center;
-          align-items: center;     /* desktop keskitys */
-          width: 100%;
-          min-height: 100vh;       /* sivu venyy, kortti ei */
+          display: block;
+          height: 100svh;
+          min-height: 100svh;
+        }
+
+        /* Kortti, jolla on 20px marginaali reunoista */
+        .card {
           box-sizing: border-box;
-          padding: 20px;
-        }
+          margin: 20px;
+          /* 100svh - ylä + ala margin (20 + 20) */
+          min-height: calc(100svh - 40px);
+          height: calc(100svh - 40px);
 
-        /********************************
-         * APP CARD (KORTTI)
-         ********************************/
-        .app-card {
-          display: flex;
-          flex-direction: column;
-          box-sizing: border-box;
-
-          width: 100%;
-          max-width: 600px;      /* desktop max */
-          min-height: 600px;     /* desktop min */
-
-          flex-grow: 1;          /* TÄRKEÄ: venyy hostin sisällä */
-        }
-
-        /********************************
-         * MOBILE FIX
-         ********************************/
-        @media (max-width: 767px) {
-
-          :host {
-            align-items: flex-start;    /* EI keskity mobiilissa */
-            padding: 0;                /* EI ylimääräistä yläreunaa */
-            min-height: auto;          /* EI pakotettua 100vh:ta */
-          }
-
-          .app-card {
-            width: 100%;
-            max-width: none;
-            min-height: 100%;          /* venyy ympäristön mukaan */
-            flex-grow: 1;              /* VENYÄ hostin täyteen */
-          }
-        }
-
-        /********************************
-         * INNER LAYOUT
-         ********************************/
-        .grid-container {
-          flex: 1;                 
+          background: #1e3a8a; /* sininen */
+          color: white;
           display: flex;
           flex-direction: column;
-          box-sizing: border-box;
         }
 
-        .grid {
+        /* Tämä ottaa kaiken kortin sisällä olevan tilan */
+        .card-content {
           flex: 1;
+          padding: 16px;
+          box-sizing: border-box;
           display: flex;
           flex-direction: column;
-          position: relative;
-          border: 1px solid #ccc;
+          gap: 16px;
         }
 
-        .grid-content {
-          padding: 20px;
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
-          flex-grow: 1;
+        .card-header {
+          font-weight: bold;
         }
 
-        .grid-content-body {
-          flex-grow: 1;
+        .card-body {
+          flex: 1;
         }
-
-        /* crosses */
-        .cross {
-          position: absolute;
-          width: 20px;
-          height: 20px;
-        }
-
-        .cross-top-left { top: -11px; left: -11px; }
-        .cross-bottom-right { bottom: -10px; right: -10px; }
-
-        .cross-line {
-          position: absolute;
-          border-color: #999;
-          border-style: solid;
-          border-width: 0;
-        }
-
-        .cross-line-vertical {
-          width: 10px;
-          height: 20px;
-          border-right-width: 1px;
-        }
-
-        .cross-line-horizontal {
-          width: 20px;
-          height: 10px;
-          border-bottom-width: 1px;
-        }
-
       </style>
 
-      <div class="app-card">
-        <div class="grid-container">
-
-          <div class="grid">
-
-            <div class="cross cross-top-left">
-              <div class="cross-line cross-line-vertical"></div>
-              <div class="cross-line cross-line-horizontal"></div>
-            </div>
-
-            <div class="cross cross-bottom-right">
-              <div class="cross-line cross-line-vertical"></div>
-              <div class="cross-line cross-line-horizontal"></div>
-            </div>
-
-            <div class="grid-content">
-              <slot name="top"></slot>
-
-              <header>
-                <h1>// eemeli kyrola</h1>
-              </header>
-
-              <div class="grid-content-body">
-                <slot name="body"></slot>
-              </div>
-            </div>
-
+      <div class="card">
+        <div class="card-content">
+          <div class="card-header">
+            <slot name="top"></slot>
           </div>
-
+          <div class="card-body">
+            <slot name="body"></slot>
+          </div>
         </div>
       </div>
     `;
