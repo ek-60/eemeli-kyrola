@@ -21,22 +21,16 @@ class MainCard extends HTMLElement {
         }
 
         .card {
-          flex-grow: 1;
-
           margin: 20px;
           padding: 20px;
-
           box-sizing: border-box;
-
           position: relative;
           border: 1px solid #cccccc;
-
           display: flex;
           flex-direction: column;
           gap: 20px;
         }
 
-        /* ← Suoraan kortille tehty back-linkki */
         .back-link {
           font-family: monospace;
           font-size: 14px;
@@ -48,7 +42,6 @@ class MainCard extends HTMLElement {
           text-decoration: underline;
         }
 
-        /* Kulmaristit */
         .cross {
           position: absolute;
           width: 20px;
@@ -87,7 +80,6 @@ class MainCard extends HTMLElement {
 
       <div class="card">
 
-        <!-- Kulmaristit -->
         <div class="cross cross-top-left">
           <div class="cross-line cross-line-vertical"></div>
           <div class="cross-line cross-line-horizontal"></div>
@@ -98,7 +90,6 @@ class MainCard extends HTMLElement {
           <div class="cross-line cross-line-horizontal"></div>
         </div>
 
-        <!-- BACK LINK (vain kun ei olla /) -->
         ${showBack ? `<a class="back-link" href="/">← back</a>` : ``}
 
         <header class="card-header">
