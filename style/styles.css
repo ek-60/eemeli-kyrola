@@ -9,7 +9,7 @@ body {
 
 /* Desktop: keskitetty kortti */
 .app-main {
-    min-height: 100%;
+    min-height: 100svh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,9 +18,8 @@ body {
 /* Mobiili: kortti ylös */
 @media (max-width: 768px) {
     .app-main {
-        height: 100%;
-        align-items: flex-start;
-        padding-top: 20px;
+        height: 100svh;
+        align-items: stretch;
     }
 }
 
