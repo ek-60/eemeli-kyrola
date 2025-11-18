@@ -18,10 +18,6 @@ class MainCard extends HTMLElement {
           min-height: 100svh;
           box-sizing: border-box;
           background: #fff;
-
-          /* desktop keskitys */
-          justify-content: center;
-          align-items: center;
         }
 
         .card {
@@ -42,6 +38,8 @@ class MainCard extends HTMLElement {
         /* DESKTOP: breakpoint muutettu 980px → 600x600 kortti */
         @media (min-width: 980px) {
           .card {
+            justify-content: center;
+            align-items: center;
             width: 600px;
             height: 600px;
             overflow-y: auto; /* skrolli pitkälle sisällölle */
