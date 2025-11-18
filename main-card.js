@@ -32,7 +32,6 @@ class MainCard extends HTMLElement {
 
           /* mobiili oletus */
           width: calc(100% - 40px);
-          height: auto;
         }
 
         /* DESKTOP: breakpoint muutettu 980px → 600x600 kortti */
