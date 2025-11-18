@@ -41,8 +41,8 @@ class MainCard extends HTMLElement {
             align-items: center;
           }
           .card {
-            width: 980px;
-            height: 980px;
+            width: 680px;
+            height: 680px;
             overflow-y: auto; /* skrolli pitkälle sisällölle */
           }
         }
