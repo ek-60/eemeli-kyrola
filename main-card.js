@@ -19,34 +19,34 @@ class MainCard extends HTMLElement {
           --font-size-large: 20px;
           --font-color: #000000;
 
-          display: inline-block;
+          display: block;       /* Safari-vaatimus */
+          height: 100%;         /* Korjattu typo */
           box-sizing: border-box;
-          heigth: 100%;
         }
 
         .app-card {
-          border: none;
-          display: inline-flex;
-          flex-direction: column;
-          position: relative;
-          box-sizing: border-box;
+          height: 100%;
+          width: 100%;
+          display: flex;
         }
 
         .grid-container {
-          display: inline-flex;
+          flex: 1;               /* Täyttää kaiken tilan */
+          display: flex;
           flex-direction: column;
-          gap: var(--space-medium);
-          align-items: flex-start;
         }
 
         .grid {
-          display: inline-flex;
+          flex: 1;               /* Kasvaa koko korkeuteen */
           position: relative;
           border: 1px solid #cccccc;
+          display: flex;
+          flex-direction: column;
         }
 
         .grid-content {
-          display: inline-flex;
+          flex: 1;               /* Vie kaiken tilan */
+          display: flex;
           flex-direction: column;
           padding: var(--space-medium);
           gap: var(--space-medium);
@@ -58,6 +58,12 @@ class MainCard extends HTMLElement {
           font-family: var(--font-family-monospace);
           color: var(--font-color);
           margin: 0;
+        }
+
+        .grid-content-body {
+          flex: 1;               /* Body kasvaa */
+          display: flex;
+          flex-direction: column;
         }
 
         .cross {
