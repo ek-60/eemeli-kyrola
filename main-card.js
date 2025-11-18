@@ -18,9 +18,8 @@ class MainCard extends HTMLElement {
         }
 
         .card {
-        
-          fex-grow: 1;
-          
+          flex-grow: 1;
+
           margin: 20px;
           padding: 20px;
 
@@ -29,10 +28,11 @@ class MainCard extends HTMLElement {
           box-sizing: border-box;
 
           position: relative;
-          border: 1px solid #cccccc;  /* reunaviiva */
+          border: 1px solid #cccccc;
 
           display: flex;
           flex-direction: column;
+          gap: 20px;
         }
 
         /* Kulman viivat */
@@ -79,6 +79,13 @@ class MainCard extends HTMLElement {
           gap: 20px;
         }
 
+        header.card-header h1 {
+          margin: 0;
+          font-family: monospace;
+          font-size: 22px;
+          font-weight: 600;
+        }
+
       </style>
 
       <div class="card">
@@ -95,8 +102,12 @@ class MainCard extends HTMLElement {
           <div class="cross-line cross-line-horizontal"></div>
         </div>
 
+        <!-- OIKEA HEADER-TAGI -->
+        <header class="card-header">
+          <h1>// eemeli kyrola</h1>
+        </header>
+
         <div class="card-content">
-          <!-- Tässä on nyt pyytämäsi body-slot -->
           <slot name="body"></slot>
         </div>
 
