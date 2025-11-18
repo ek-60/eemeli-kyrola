@@ -5,23 +5,28 @@ class MainCard extends HTMLElement {
   }
 
   connectedCallback() {
+
+    const showBack = window.location.pathname !== "/";
+
     this.shadowRoot.innerHTML = `
       <style>
 
         :host {
           display: flex;
           width: 100%;
-          height: auto;               /* kasvaa sisällön mukaan */
-          min-height: 100svh;         /* ei koskaan pienempi kuin viewport */
+          height: auto;
+          min-height: 100svh;
           box-sizing: border-box;
           background: #fff;
         }
 
         .card {
+          flex-grow: 1;
+
           margin: 20px;
           padding: 20px;
 
-          background: #1e3a8a;        /* sininen tausta */
+          background: #1e3a8a;
           color: white;
           box-sizing: border-box;
 
@@ -33,7 +38,19 @@ class MainCard extends HTMLElement {
           gap: 20px;
         }
 
-        /* Kulman viivat */
+        /* ← Suoraan kortille tehty back-linkki */
+        .back-link {
+          font-family: monospace;
+          font-size: 14px;
+          color: #000;
+          text-decoration: none;
+        }
+
+        .back-link:hover {
+          text-decoration: underline;
+        }
+
+        /* Kulmaristit */
         .cross {
           position: absolute;
           width: 20px;
@@ -41,33 +58,24 @@ class MainCard extends HTMLElement {
           z-index: 10;
         }
 
-        .cross-top-left {
-          top: -11px;
-          left: -11px;
-        }
-
-        .cross-bottom-right {
-          bottom: -10px;
-          right: -10px;
-        }
+        .cross-top-left { top: -10px; left: -10px; }
+        .cross-bottom-right { bottom: -10px; right: -10px; }
 
         .cross-line {
           position: absolute;
-          border-color: #999999;
+          border-color: #999;
           border-style: solid;
           border-width: 0;
         }
 
-        .cross-line-vertical {
-          width: 10px;
-          height: 20px;
-          border-right-width: 1px;
-        }
+        .cross-line-vertical { width: 10px; height: 20px; border-right-width: 1px; }
+        .cross-line-horizontal { width: 20px; height: 10px; border-bottom-width: 1px; }
 
-        .cross-line-horizontal {
-          width: 20px;
-          height: 10px;
-          border-bottom-width: 1px;
+        header.card-header h1 {
+          margin: 0;
+          font-family: monospace;
+          font-size: 22px;
+          font-weight: 600;
         }
 
         .card-content {
@@ -77,30 +85,24 @@ class MainCard extends HTMLElement {
           gap: 20px;
         }
 
-        header.card-header h1 {
-          margin: 0;
-          font-family: monospace;
-          font-size: 22px;
-          font-weight: 600;
-        }
-
       </style>
 
       <div class="card">
 
-        <!-- Vasemman yläkulman risti -->
+        <!-- Kulmaristit -->
         <div class="cross cross-top-left">
           <div class="cross-line cross-line-vertical"></div>
           <div class="cross-line cross-line-horizontal"></div>
         </div>
 
-        <!-- Oikean alakulman risti -->
         <div class="cross cross-bottom-right">
           <div class="cross-line cross-line-vertical"></div>
           <div class="cross-line cross-line-horizontal"></div>
         </div>
 
-        <!-- OIKEA HEADER-TAGI -->
+        <!-- BACK LINK (vain kun ei olla /) -->
+        ${showBack ? `<a class="back-link" href="/">← back</a>` : ``}
+
         <header class="card-header">
           <h1>// eemeli kyrola</h1>
         </header>
