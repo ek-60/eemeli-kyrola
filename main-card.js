@@ -21,6 +21,7 @@ class MainCard extends HTMLElement {
 
           display: inline-block;
           box-sizing: border-box;
+          heigth: 100%;
         }
 
         .app-card {
