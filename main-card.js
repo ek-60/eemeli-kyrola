@@ -9,7 +9,7 @@ class MainCard extends HTMLElement {
       <style>
 
         :host {
-          display: block;
+          display: flex;
           width: 100%;
           height: auto;               /* kasvaa sisällön mukaan */
           min-height: 100svh;         /* ei koskaan pienempi kuin viewport */
@@ -18,6 +18,9 @@ class MainCard extends HTMLElement {
         }
 
         .card {
+        
+          fex-grow: 1;
+          
           margin: 20px;
           padding: 20px;
 
