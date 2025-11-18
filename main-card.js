@@ -25,9 +25,6 @@ class MainCard extends HTMLElement {
           color: white;
           box-sizing: border-box;
 
-          min-height: calc(100svh - 40px);
-          height: auto;
-
           position: relative;
           border: 1px solid #cccccc;  /* reunaviiva */
 
