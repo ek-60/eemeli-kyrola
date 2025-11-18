@@ -24,7 +24,6 @@ class MainCard extends HTMLElement {
           align-items: center;        /* desktop keskitys */
           width: 100%;
           min-height: 100vh;          /* host täyttää ruudun (mutta kortti ei pakotetusti) */
-          padding: 20px;
           box-sizing: border-box;
         }
 
@@ -37,6 +36,7 @@ class MainCard extends HTMLElement {
           flex-direction: column;
           flex-grow: 1;               /* ← KORTTI VENYY SISÄLLÖLLÄ */
           box-sizing: border-box;
+          margin: 20px;
         }
 
         /* ------------ MOBILE ------------ */
