@@ -43,7 +43,6 @@ class MainCard extends HTMLElement {
           .card {
             width: 900px;
             height: 680px;
-            overflow-y: auto; /* skrolli pitkälle sisällölle */
           }
         }
 
