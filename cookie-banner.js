@@ -42,6 +42,12 @@ class CookieBanner extends HTMLElement {
           background: #fff;
         }
 
+        @media (max-width: 980px) {
+          .card {
+            height: 100%;
+          }
+        }
+
         /* Kulmakoristeet */
         .cross {
           position: absolute;
