@@ -89,6 +89,11 @@ class MainCard extends HTMLElement {
           gap: 20px;
         }
 
+        .card-footer {
+          font-family: monospace;
+          font-size: 12px;
+        }
+
       </style>
 
       <div class="card">
@@ -107,11 +112,17 @@ class MainCard extends HTMLElement {
 
         <header class="card-header">
           <h1>// eemeli kyrola</h1>
+          
         </header>
 
         <div class="card-content">
           <slot name="body"></slot>
         </div>
+
+        <footer class="card-footer">
+          <p>© 2025 eemeli kyrola</p>
+          <cookie-banner></cookie-banner>
+        </footer>
 
       </div>
     `;
