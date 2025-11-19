@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style/styles.css" />
+
+    <title>DevOps Skills - Eemeli Kyrola</title>
+    <meta name="description" content="DevOps and automation skills" />
+
+    <script src="../main-card.js" defer></script>
+    <script src="../directory-listing.js" defer></script>
+  </head>
+
+  <body>
+    <main>
+      <main-card>
+        <div slot="body">
+          <p>
+            My DevOps skills focus on automation, CI/CD pipelines, development workflow
+            optimization and reliable deployments.
+          </p>
+        </div>
+
+        <directory-listing
+          slot="body"
+          data='{
+            "devops": [
+              { "label": "CI/CD Pipelines" },
+              { "label": "GitHub Actions" },
+              { "label": "Jenkins" },
+              { "label": "Docker" },
+              { "label": "Reverse Proxies (Nginx)" },
+              { "label": "Linux / Server Management" },
+              { "label": "Build Automation" },
+              { "label": "Monitoring & Logs" }
+            ]
+          }'
+        ></directory-listing>
+      </main-card>
+    </main>
+  </body>
+</html>
