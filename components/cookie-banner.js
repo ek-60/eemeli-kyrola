@@ -2,10 +2,30 @@ class CookieBanner extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
+
+    this.accept = this.accept.bind(this);
+    this.decline = this.decline.bind(this);
+    this.hideBanner = this.hideBanner.bind(this);
+  }
+
+
+  hideBanner() {
+    this.style.pointerEvents = "auto";
+    this.style.display = "none";
+    requestAnimationFrame(() => this.remove());
+  }
+
+  accept() {
+    localStorage.setItem("cookie-consent", "accepted");
+    this.hideBanner();
+  }
+
+  decline() {
+    localStorage.setItem("cookie-consent", "declined");
+    this.hideBanner();
   }
 
   connectedCallback() {
-    // Jos käyttäjä on jo tehnyt valinnan
     const choice = localStorage.getItem("cookie-consent");
     if (choice) return;
 
@@ -128,32 +148,14 @@ class CookieBanner extends HTMLElement {
           <p>This website uses cookies to enhance your experience.</p>
 
           <div class="buttons">
-            <button id="accept">Accept</button>
-            <button id="decline">Decline</button>
+            <button id="accept" onclick="this.getRootNode().host.accept()">Accept</button>
+            <button id="decline" onclick="this.getRootNode().host.decline()">Decline</button>
           </div>
         </div>
 
       </div>
     `;
-
-    const hide = () => this.remove();
-
-    this.shadowRoot.querySelector("#accept").addEventListener("click", () => {
-      localStorage.setItem("cookie-consent", "accepted");
-      hide();
-    });
-
-    this.shadowRoot.querySelector("#decline").addEventListener("click", () => {
-      localStorage.setItem("cookie-consent", "declined");
-      hide();
-    });
   }
 }
 
 customElements.define("cookie-banner", CookieBanner);
-
-window.addEventListener("DOMContentLoaded", () => {
-  if (!document.querySelector("cookie-banner")) {
-    document.body.appendChild(document.createElement("cookie-banner"));
-  }
-});
