@@ -4,32 +4,3 @@ body {
     margin: 0;
     padding: 0;
 }
-
-/*
-main {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.box {
-    background-color: #007bff;
-    max-width: 600px;
-    min-height: 600px;
-    width: 100%;
-    margin: 20px;
-}
-
-main-card {
-    height: 100%;
-    width: 100%;
-}
-
-@media (max-width: 768px) {
-    main {
-        height: 100%;
-        align-items: flex-start;
-    }
-}
-*/
