@@ -62,7 +62,7 @@ class MainCard extends HTMLElement {
           z-index: 10;
         }
 
-        .cross-top-left { top: -10px; left: -10px; }
+        .cross-top-left { top: -11px; left: -11px; }
         .cross-bottom-right { bottom: -10px; right: -10px; }
 
         .cross-line {

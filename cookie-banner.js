@@ -17,17 +17,19 @@ class CookieBanner extends HTMLElement {
           bottom: 0;
           left: 0;
           width: 100%;
-          background: #fff;
+          height: 100%;
           display: flex;
           justify-content: center;
+          align-items: center;
           box-sizing: border-box;
           padding: 20px;
-          z-index: 9999;
+          z-index: 20;
         }
 
         .card {
           width: 100%;
           max-width: 900px;
+          height: 680px;
           border: 1px solid #cccccc;
           padding: 20px;
           margin: 0;
@@ -47,7 +49,7 @@ class CookieBanner extends HTMLElement {
           z-index: 10;
         }
 
-        .cross-top-left { top: -10px; left: -10px; }
+        .cross-top-left { top: -11px; left: -11px; }
         .cross-bottom-right { bottom: -10px; right: -10px; }
 
         .cross-line {
