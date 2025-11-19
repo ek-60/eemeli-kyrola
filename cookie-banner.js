@@ -36,6 +36,7 @@ class CookieBanner extends HTMLElement {
           box-sizing: border-box;
           display: flex;
           flex-direction: column;
+          justify-content: space-between;
           gap: 20px;
           position: relative;
           background: #fff;
@@ -70,6 +71,12 @@ class CookieBanner extends HTMLElement {
           font-weight: 600;
         }
 
+        .card-content {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+
         p {
           font-family: monospace;
           font-size: 16px;
@@ -82,7 +89,7 @@ class CookieBanner extends HTMLElement {
         }
 
         button {
-          padding: 10px 16px;
+          padding: 10px 20px;
           font-family: monospace;
           border: 1px solid #000;
           background: #eee;
@@ -111,11 +118,13 @@ class CookieBanner extends HTMLElement {
           <h1>// cookies</h1>
         </header>
 
-        <p>This website uses cookies to enhance your experience.</p>
+        <div class="card-content">
+          <p>This website uses cookies to enhance your experience.</p>
 
-        <div class="buttons">
-          <button id="accept">Accept</button>
-          <button id="decline">Decline</button>
+          <div class="buttons">
+            <button id="accept">Accept</button>
+            <button id="decline">Decline</button>
+          </div>
         </div>
 
       </div>
