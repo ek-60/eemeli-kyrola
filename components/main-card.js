@@ -77,7 +77,7 @@ class MainCard extends HTMLElement {
 
         header.card-header h1 {
           margin: 0;
-          font-family: monospace;
+          font-family: ans-serif;
           font-size: 22px;
           font-weight: 600;
         }
