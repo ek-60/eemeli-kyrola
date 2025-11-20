@@ -48,7 +48,7 @@ class MainCard extends HTMLElement {
 
         .back-link {
           font-family: monospace;
-          font-size: 14px;
+          font-size: 12px;
           color: #000;
           text-decoration: none;
         }
