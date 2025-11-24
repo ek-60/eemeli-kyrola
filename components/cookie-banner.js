@@ -8,7 +8,6 @@ class CookieBanner extends HTMLElement {
     this.hideBanner = this.hideBanner.bind(this);
   }
 
-
   hideBanner() {
     this.style.pointerEvents = "auto";
     this.style.display = "none";
