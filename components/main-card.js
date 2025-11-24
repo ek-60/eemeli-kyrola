@@ -50,9 +50,12 @@ class MainCard extends HTMLElement {
           font-size: 12px;
           color: #000;
           text-decoration: none;
+          width: fit-content;
         }
 
-        .back-link:hover { text-decoration: underline; }
+        .back-link:hover {
+          text-decoration: underline;
+        }
 
         .cross {
           position: absolute;
