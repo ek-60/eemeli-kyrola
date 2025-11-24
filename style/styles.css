@@ -15,3 +15,10 @@ h2 {
 p {
     font-family: monospace;
 }
+
+
+cookie-banner:not(:defined),
+directory-listin:not(:defined),
+main-card:not(:defined) {
+    display: none;
+}
