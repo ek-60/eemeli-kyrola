@@ -34,17 +34,6 @@ class MainCard extends HTMLElement {
           width: calc(100% - 40px);
         }
 
-        @media (min-width: 980px) {
-          :host {
-            justify-content: center;
-            align-items: center;
-          }
-          .card {
-            width: 900px;
-            height: 780px;
-          }
-        }
-
         .back-link {
           font-family: monospace;
           font-size: 12px;
@@ -115,6 +104,20 @@ class MainCard extends HTMLElement {
 
         .footer-button:hover {
           background: #ddd;
+        }
+
+        @media (min-width: 980px) {
+          :host {
+            justify-content: center;
+            align-items: center;
+          }
+          .card {
+            width: 900px;
+            height: 780px;
+          }
+          .card-footer {
+            flex-direction: column;
+          }
         }
 
       </style>
