@@ -93,8 +93,28 @@ class MainCard extends HTMLElement {
         }
 
         .card-footer {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
           font-family: monospace;
           font-size: 12px;
+        }
+
+        .footer-button {
+          font-family: monospace;
+          font-size: 12px;
+          color: #000;
+          text-decoration: none;
+          text-transform: uppercase;
+          width: fit-content;
+          border: 1px solid #000;
+
+        }
+
+        .footer-button:hover {
+          background: #ddd;
         }
 
       </style>
@@ -124,11 +144,27 @@ class MainCard extends HTMLElement {
 
         <footer class="card-footer">
           <p>© 2025 eemeli kyrola</p>
-          <cookie-banner></cookie-banner>
+          <button class="footer-button" id="cookie-btn">Open cookie settings</button>
         </footer>
+
+        <cookie-banner></cookie-banner>
 
       </div>
     `;
+
+    const cookieBtn = this.shadowRoot.getElementById('cookie-btn');
+    cookieBtn.addEventListener('click', () => {
+      // Remove existing cookie banner if it exists
+      const existing = document.querySelector('cookie-banner');
+      if (existing) {
+        existing.remove();
+      }
+      // Clear cookie consent so banner will show
+      localStorage.removeItem('cookie-consent');
+      // Create and append a new cookie banner to body
+      const newBanner = document.createElement('cookie-banner');
+      document.body.appendChild(newBanner);
+    });
   }
 }
 
