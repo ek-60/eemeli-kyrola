@@ -133,7 +133,7 @@ class DirectoryListing extends HTMLElement {
           font-size: var(--font-size-small);
           color: var(--color-link);
           text-decoration: none;
-          paddnig: 2px 4px;
+          padding: 2px 4px;
         }
 
         .file-list a:hover {
