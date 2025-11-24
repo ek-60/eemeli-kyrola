@@ -82,6 +82,7 @@ class MainCard extends HTMLElement {
           font-family: sans-serif;
           font-size: 20px;
           font-weight: 600;
+          text-transform: lowercase;
         }
 
         .card-content {
