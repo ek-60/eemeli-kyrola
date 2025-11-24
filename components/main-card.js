@@ -83,9 +83,9 @@ class MainCard extends HTMLElement {
 
         .card-footer {
           display: flex;
-          flex-direction: row;
           justify-content: space-between;
           align-items: center;
+          flex-direction: column;
           width: 100%;
           font-family: monospace;
           font-size: 12px;
@@ -116,7 +116,7 @@ class MainCard extends HTMLElement {
             height: 780px;
           }
           .card-footer {
-            flex-direction: column;
+            flex-direction: row;
           }
         }
 
