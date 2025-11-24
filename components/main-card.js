@@ -34,7 +34,6 @@ class MainCard extends HTMLElement {
           width: calc(100% - 40px);
         }
 
-        /* DESKTOP: breakpoint muutettu 980px → 600x600 kortti */
         @media (min-width: 980px) {
           :host {
             justify-content: center;
@@ -42,7 +41,7 @@ class MainCard extends HTMLElement {
           }
           .card {
             width: 900px;
-            height: 680px;
+            height: 780px;
           }
         }
 

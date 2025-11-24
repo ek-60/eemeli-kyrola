@@ -49,7 +49,7 @@ class CookieBanner extends HTMLElement {
         .card {
           width: 100%;
           max-width: 900px;
-          height: 680px;
+          height: 780px;
           border: 1px solid #cccccc;
           padding: 20px;
           margin: 0;
