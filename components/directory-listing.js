@@ -73,7 +73,7 @@ class DirectoryListing extends HTMLElement {
           --font-weight-bold: bold;
 
           --color-text: #000000;
-          --color-link: #0366d6;
+          --color-link: #003899;
         }
 
         h2 {
@@ -133,6 +133,7 @@ class DirectoryListing extends HTMLElement {
           font-size: var(--font-size-small);
           color: var(--color-link);
           text-decoration: none;
+          paddnig: 2px 4px;
         }
 
         .file-list a:hover {
@@ -141,6 +142,7 @@ class DirectoryListing extends HTMLElement {
         
         .file-list a:visited {
           color: #551a8b;
+          text-decoration: underline;
         }
 
         .file-list span {
