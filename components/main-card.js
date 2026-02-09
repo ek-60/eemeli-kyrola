@@ -138,7 +138,6 @@ class MainCard extends HTMLElement {
 
         <header class="card-header">
           <h1>// eemeli kyrola</h1>
-          
         </header>
 
         <div class="card-content">
