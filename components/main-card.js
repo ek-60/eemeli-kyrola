@@ -149,8 +149,6 @@ class MainCard extends HTMLElement {
           <button class="footer-button" id="cookie-btn">Open cookie settings</button>
         </footer>
 
-        <cookie-banner></cookie-banner>
-
       </div>
     `;
 
