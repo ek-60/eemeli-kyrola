@@ -146,7 +146,6 @@ class MainCard extends HTMLElement {
 
         <footer class="card-footer">
           <p>© 2025 eemeli kyrola</p>
-          <button class="footer-button" id="cookie-btn">Open cookie settings</button>
         </footer>
 
       </div>
